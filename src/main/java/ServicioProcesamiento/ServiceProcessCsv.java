@@ -21,7 +21,7 @@ public class ServiceProcessCsv {
 
     public void procesarCsv(String nombreArchivo) {
         try {
-            lector = new BufferedReader(new FileReader(nombreArchivo)); // Use the provided filename
+            lector = new BufferedReader(new FileReader("people.cvs"));
             while ((linea = lector.readLine()) != null) {
                 partes = linea.split(",");
                 csvData.add(partes); // Add the parts to the list
