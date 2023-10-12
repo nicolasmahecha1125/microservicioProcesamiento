@@ -1,27 +1,23 @@
 package ServicioProcesamiento;
 
-
-import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public class ServiceProcessCsv {
-
+public class ServiceProcessExcel {
     private BufferedReader lector;
     private String linea;
     private String partes[] = null;
-    private List<String[]> csvData = new ArrayList<>();
+    private List<String[]> ExcelData = new ArrayList<>();
 
-    public void procesarCsv(String nombreArchivo) {
+    public void procesarExcel(String nombreArchivo) {
         try {
-            lector = new BufferedReader(new FileReader("people.csv"));
+            lector = new BufferedReader(new FileReader("sampledatasafety.xlsx"));
             while ((linea = lector.readLine()) != null) {
                 partes = linea.split(",");
-                csvData.add(partes);
+                ExcelData.add(partes);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -40,8 +36,8 @@ public class ServiceProcessCsv {
 
 
 
-    public List<String[]> getCsvData() {
-        return csvData;
+    public List<String[]> getExcelData() {
+        return ExcelData;
     }
-}
 
+}
